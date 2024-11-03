@@ -7,8 +7,11 @@ RUN mkdir src
 # Set working directory
 WORKDIR /src
 
-# Install Jupyter
-RUN pip install jupyter
+# Copy requirements file
+COPY requirements.txt .
+
+# Install requirements
+RUN pip install -r requirements.txt
 
 # Command to start Jupyter server
 # --no-browser: Don't open browser since we're in container
